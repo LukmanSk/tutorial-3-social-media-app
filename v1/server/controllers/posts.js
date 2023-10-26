@@ -32,5 +32,6 @@ exports.updatePost = async (req, res) => {
   const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, {
     new: true,
   });
+
   res.status(200).json(updatedPost);
 };
