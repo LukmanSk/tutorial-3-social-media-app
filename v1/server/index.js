@@ -2,10 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
 const postRoutes = require("./routes/posts");
 
 const app = express();
+dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -13,7 +15,7 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 
-const CONNECTION_URL = `mongodb+srv://bsl_1746:bsl_1746@cluster0.lnuerzl.mongodb.net/Tutorial-03-Social-Media-App-v1?retryWrites=true&w=majority`;
+const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;
 
 mongoose
