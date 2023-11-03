@@ -1,0 +1,9 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.label {
+  text-transform: capitalize;
+  line-height: 1;
+}
